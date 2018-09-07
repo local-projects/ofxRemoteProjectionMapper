@@ -342,7 +342,7 @@ void RemoteWarpBase::loadControlPoints(const std::filesystem::path& file)
     if (!infile.exists())
     {
         ofLogWarning("RemoteWarp::loadControlPoints") << "File not found at path " << file;
-        return false;
+        return;
     }
     
     nlohmann::json json;

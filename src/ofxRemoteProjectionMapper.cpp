@@ -300,7 +300,6 @@ void ofxRemoteProjectionMapper::loadWarps()
     if (!infile.exists())
     {
         ofLogWarning("RemoteProjectionMapper::loadConfig") << "File not found at path " << saveLocation;
-        return false;
     }
     
     nlohmann::json json;
