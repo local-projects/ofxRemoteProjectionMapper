@@ -308,6 +308,14 @@ void ofxRemoteProjectionMapper::loadWarps()
     for (const auto & warpJson : json["warps"])
     {
         std::string name = warpJson["name"];
+
+		auto found = std::find_if(mappings.begin(), mappings.end(), [&name](const std::shared_ptr<RemoteWarpBase>& warp) {
+			return warp->getName() == name;
+		});
+		if (found != mappings.end()) {
+			continue;
+		}
+
         int type = warpJson["type"];
         
         glm::ivec2 srcSize;
